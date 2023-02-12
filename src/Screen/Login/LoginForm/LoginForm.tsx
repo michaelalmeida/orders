@@ -1,45 +1,49 @@
 import React from "react";
-import { Button, Form, Input, Space } from "antd";
+import { Button, Form, Input } from "antd";
+import { useTranslation } from "react-i18next";
 
-const onFinish = (values: any) => {
-  console.log("Success:", values);
-};
+export const LoginForm = () => {
+  const { t } = useTranslation();
 
-const onFinishFailed = (errorInfo: any) => {
-  console.log("Failed:", errorInfo);
-};
+  const onFinish = (values: any) => {
+    console.log("Success:", values);
+  };
 
-export const LoginForm = () => (
-  <Form
-    name="basic"
-    initialValues={{ remember: true }}
-    onFinish={onFinish}
-    onFinishFailed={onFinishFailed}
-    autoComplete="off"
-  >
-    <Space size={[0, 32]} wrap>
+  const onFinishFailed = (errorInfo: any) => {
+    console.log("Failed:", errorInfo);
+  };
+
+  return (
+    <Form
+      name="basic"
+      initialValues={{ remember: true }}
+      onFinish={onFinish}
+      onFinishFailed={onFinishFailed}
+      autoComplete="off"
+    >
       <Form.Item
         name="username"
-        rules={[{ required: true, message: "Please input your username!" }]}
-        noStyle
+        rules={[{ required: true, message: t("form.required") as string }]}
       >
-        <Input placeholder="username" size="large" />
+        <Input placeholder={t("form.username") as string} size="large" />
       </Form.Item>
 
       <Form.Item
         name="password"
-        rules={[{ required: true, message: "Please input your password!" }]}
-        noStyle
+        rules={[{ required: true, message: t("form.required") as string }]}
       >
-        <Input.Password placeholder="password" size="large" />
+        <Input.Password
+          placeholder={t("form.password") as string}
+          size="large"
+        />
       </Form.Item>
 
       <Form.Item wrapperCol={{ offset: 8, span: 16 }} noStyle>
         <Button type="primary" htmlType="submit">
-          Entrar
+          {t("login")}
         </Button>
-        <Button type="link">Criar conta</Button>
+        <Button type="link"> {t("signup")}</Button>
       </Form.Item>
-    </Space>
-  </Form>
-);
+    </Form>
+  );
+};

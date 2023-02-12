@@ -1,0 +1,10 @@
+{
+  "login": "Entrar",
+  "signup": "Registre-se",
+
+  "form.title": "Entrar no sistema",
+  "form.email": "E-mail",
+  "form.password": "Senha",
+  "form.username": "Usuário",
+  "form.required": "Campo obrigatório"
+}

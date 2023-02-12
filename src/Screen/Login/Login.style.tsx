@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { WHITE, MAIN_COLOR } from "../../Constants/colors";
 
 export const LoginWrapper = styled.div`
-  width: 700px;
+  width: 750px;
   display: flex;
   background-color: ${WHITE};
   border-radius: 20px;
@@ -22,7 +22,7 @@ export const LoginForm = styled.div`
 export const LoginSide = styled.div`
   flex-grow: 1;
   background-color: ${MAIN_COLOR};
-  padding: 20px;
+  padding: 30px;
   border-radius: 0 20px 20px 0;
 
   svg {

@@ -24,7 +24,6 @@ const GlobalStyle = createGlobalStyle`
     border: 4px solid ${MAIN_COLOR};
     background: transparent;
     padding: 5px 20px;
-    text-transform: uppercase;
     font-weight: 900;
     font-size: 14px;
     cursor: pointer;
@@ -33,6 +32,12 @@ const GlobalStyle = createGlobalStyle`
   }
   div {
     box-sizing: border-box;
+  }
+
+  // antd
+  button:where(.css-dev-only-do-not-override-gz9gal).ant-btn-primary,
+  :where(.css-dev-only-do-not-override-gz9gal).ant-btn-primary {
+    box-shadow: 0 0 0;
   }
 }
 `;

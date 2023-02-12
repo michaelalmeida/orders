@@ -3,7 +3,6 @@ import { WHITE, MAIN_COLOR } from "../../Constants/colors";
 
 export const LoginWrapper = styled.div`
   width: 700px;
-  height: 400px;
   display: flex;
   background-color: ${WHITE};
   border-radius: 20px;
@@ -11,17 +10,24 @@ export const LoginWrapper = styled.div`
 `;
 
 export const LoginForm = styled.div`
-  flex-grow: 1;
-  padding: 20px;
+  flex-basis: 200px;
+  padding: 30px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const LoginSide = styled.div`
-  flex-basis: 40%;
+  flex-grow: 1;
   background-color: ${MAIN_COLOR};
   padding: 20px;
   border-radius: 0 20px 20px 0;
+
+  svg {
+    width: 350px;
+    margin: auto;
+    display: block;
+  }
 `;

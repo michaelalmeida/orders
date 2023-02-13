@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BLACK, WHITE } from "../Constants/colors";
+import { BLACK, WHITE } from "../constants/colors";
 
 interface TypographyProps {
   white?: boolean;

@@ -1,11 +1,11 @@
-import React from "react";
-import GlobalStyle from "./GlobalStyle";
-import { Container } from "./Ui/Container";
 import { ConfigProvider } from "antd";
-import { MAIN_COLOR } from "./Constants/colors";
+import React from "react";
 import { I18nextProvider } from "react-i18next";
 import i18n from "../config/translations";
+import { MAIN_COLOR } from "./constants/colors";
+import GlobalStyle from "./GlobalStyle";
 import { Routes } from "./Routes";
+import { Container } from "./Ui/Container";
 
 export const App = () => {
   return (

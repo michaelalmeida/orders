@@ -4,17 +4,14 @@ import { routes } from "../constants/routes";
 import { Home } from "../Screen/Home";
 import { Login } from "../Screen/Login";
 
-import { BrowserRouter, Routes as Switch, Route, Link } from "react-router-dom";
+import { useLoader } from "../helpers/loader";
 
 export const Routes = () => {
   const router = createBrowserRouter([
     {
       path: routes.HOME,
+      loader: useLoader,
       element: <Home />,
-    },
-    {
-      path: "about",
-      element: <div>About</div>,
     },
     {
       path: routes.LOGIN,

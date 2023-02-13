@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { WHITE, MAIN_COLOR } from "../../Constants/colors";
+import { MAIN_COLOR, WHITE } from "../../constants/colors";
 
 export const LoginWrapper = styled.div`
   width: 750px;

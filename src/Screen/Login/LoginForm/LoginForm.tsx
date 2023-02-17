@@ -22,6 +22,7 @@ export const LoginForm = () => {
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
       autoComplete="off"
+      style={{ width: "100%" }}
     >
       <Form.Item
         name="username"

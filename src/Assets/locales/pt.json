@@ -1,10 +1,17 @@
 {
   "login": "Entrar",
   "signup": "Registre-se",
+  "cancel": "Cancelar",
 
-  "form.title": "Entrar no sistema",
+  "form.title": "Entrar",
   "form.email": "E-mail",
   "form.password": "Senha",
+  "form.password.confirm": "Confirme a senha",
   "form.username": "Usuário",
-  "form.required": "Campo obrigatório"
+  "form.required": "Campo obrigatório",
+  "form.language": "Idioma",
+  "form.language.pt": "Português",
+  "form.language.en": "English",
+
+  "form.signup.description": "Se cadastre gratuitamente e comece a gerenciar todos os seus orçamentos de forma rápida e simples."
 }

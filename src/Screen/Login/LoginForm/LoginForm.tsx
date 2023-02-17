@@ -1,6 +1,8 @@
-import React from "react";
 import { Button, Form, Input } from "antd";
+import React from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import { routes } from "../../../constants/routes";
 
 export const LoginForm = () => {
   const { t } = useTranslation();
@@ -42,7 +44,9 @@ export const LoginForm = () => {
         <Button type="primary" htmlType="submit">
           {t("login")}
         </Button>
-        <Button type="link"> {t("signup")}</Button>
+        <Link to={`../${routes.REGISTER}`}>
+          <Button type="link"> {t("signup")}</Button>
+        </Link>
       </Form.Item>
     </Form>
   );

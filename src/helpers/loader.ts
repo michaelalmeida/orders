@@ -1,8 +1,8 @@
 import { redirect } from "react-router-dom";
-import { useUser } from "../Hooks/useUser/useUser";
+import { useUserContext } from "../Hooks/useUser/useUser";
 
 export const useLoader = () => {
-  const { isAuth } = useUser();
+  const { isAuth } = useUserContext();
 
   if (!isAuth) {
     return redirect("/login");

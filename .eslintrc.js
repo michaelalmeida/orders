@@ -20,5 +20,7 @@ module.exports = {
   plugins: ["react", "@typescript-eslint"],
   rules: {
     "@typescript-eslint/explicit-function-return-type": "off",
+    "no-empty-function": "off",
+    "@typescript-eslint/no-empty-function": "error",
   },
 };

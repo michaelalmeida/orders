@@ -26,11 +26,19 @@ const resources = {
 //   saveMissing: true,
 // });
 
+declare module "i18next" {
+  interface CustomTypeOptions {
+    returnNull: false;
+  }
+}
+
+// eslint-disable-next-line import/no-named-as-default-member
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
     resources,
     lng: "pt",
+    returnNull: false,
 
     keySeparator: false, // we do not use keys in form messages.welcome
 

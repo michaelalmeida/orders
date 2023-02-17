@@ -1,18 +1,17 @@
 import styled from "styled-components";
 import { MAIN_COLOR, WHITE } from "../../constants/colors";
+import { BOX, PADDING } from "../../constants/sizes";
 
 export const LoginWrapper = styled.div`
-  width: 750px;
+  width: ${BOX.MEDIUM}px;
   display: flex;
   background-color: ${WHITE};
-  border-radius: 20px;
   box-shadow: rgb(0 0 0 / 5%) 0px 0px 20px 0px;
 `;
 
 export const LoginForm = styled.div`
-  flex-basis: 200px;
-  padding: 30px;
-  border-radius: 20px;
+  flex-basis: ${BOX.VERY_SMALL}px;
+  padding: ${PADDING.EXTRA_LARGE}px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,7 +22,6 @@ export const LoginSide = styled.div`
   flex-grow: 1;
   background-color: ${MAIN_COLOR};
   padding: 30px;
-  border-radius: 0 20px 20px 0;
 
   svg {
     width: 350px;

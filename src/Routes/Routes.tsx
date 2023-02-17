@@ -5,6 +5,7 @@ import { Home } from "../Screen/Home";
 import { Login } from "../Screen/Login";
 
 import { useLoader } from "../helpers/loader";
+import { SignUp } from "../Screen/SignUp";
 
 export const Routes = () => {
   const router = createBrowserRouter([
@@ -16,6 +17,10 @@ export const Routes = () => {
     {
       path: routes.LOGIN,
       element: <Login />,
+    },
+    {
+      path: routes.REGISTER,
+      element: <SignUp />,
     },
   ]);
 

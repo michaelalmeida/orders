@@ -7,6 +7,11 @@ export const SignUpWrapper = styled.div`
   width: ${BOX.LARGE}px;
   background-color: ${WHITE};
   box-shadow: rgb(0 0 0 / 5%) 0px 0px 20px 0px;
+
+  @media screen and (max-width: ${BOX.LARGE}px) {
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 
 export const SignUpForm = styled.div`
@@ -24,4 +29,13 @@ export const SignUpSide = styled.div`
   padding: 30px;
   align-items: center;
   display: flex;
+
+  @media screen and (max-width: ${BOX.LARGE}px) {
+    flex-basis: 100px;
+    justify-content: center;
+
+    svg {
+      height: 200px;
+    }
+  }
 `;

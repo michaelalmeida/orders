@@ -1,17 +1,34 @@
-import { Button, Checkbox, Form, Input, Select } from "antd";
-
+import { Alert, Button, Checkbox, Form, Input, Select } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { useUserCreation } from "../../../Hooks/useUser";
 
 const { Option } = Select;
 
-export const SignUpForm = () => {
+interface UserSignUpProps {
+  agreement: boolean;
+  confirm: string;
+  email: string;
+  language?: string;
+  password: string;
+  phone?: string;
+  prefix: string;
+  type: "enterprise" | "personal";
+}
+
+interface SignUpFormProps {
+  setCompleted: (completed: boolean) => void;
+}
+
+export const SignUpForm = ({ setCompleted }: SignUpFormProps) => {
   const { t } = useTranslation();
+  const { createUserWithEmailAndPassword, loading, error, user } =
+    useUserCreation();
 
   const [form] = Form.useForm();
 
-  const onFinish = (values: any) => {
-    console.log("Received values of form: ", values);
+  const onFinish = (values: UserSignUpProps) => {
+    createUserWithEmailAndPassword(values.email, values.password);
   };
 
   const prefixSelector = (
@@ -24,6 +41,10 @@ export const SignUpForm = () => {
     </Form.Item>
   );
 
+  if (user) {
+    setCompleted(true);
+  }
+
   return (
     <Form
       form={form}
@@ -35,16 +56,27 @@ export const SignUpForm = () => {
       style={{ width: "100%" }}
       scrollToFirstError
     >
+      {error?.code === "auth/email-already-in-use" && (
+        <Form.Item>
+          <Alert
+            message={t("form.error.email.alreadyExists")}
+            type="error"
+            showIcon
+            closable
+          />
+        </Form.Item>
+      )}
+
       <Form.Item
         name="email"
         rules={[
           {
             type: "email",
-            message: "The input is not valid E-mail!",
+            message: t("form.error.email.notValid"),
           },
           {
             required: true,
-            message: "Please input your E-mail!",
+            message: t("form.error.required"),
           },
         ]}
       >
@@ -57,7 +89,7 @@ export const SignUpForm = () => {
           rules={[
             {
               required: true,
-              message: "Please input your password!",
+              message: t("form.error.required"),
             },
           ]}
           hasFeedback
@@ -78,7 +110,7 @@ export const SignUpForm = () => {
           rules={[
             {
               required: true,
-              message: "Please confirm your password!",
+              message: t("form.error.required"),
             },
             ({ getFieldValue }) => ({
               validator(_, value) {
@@ -96,25 +128,25 @@ export const SignUpForm = () => {
         </Form.Item>
       </Form.Item>
 
-      <Form.Item
-        name="phone"
-        rules={[{ message: "Please input your phone number!" }]}
-      >
+      <Form.Item name="phone" rules={[{ message: t("form.error.required") }]}>
         <Input addonBefore={prefixSelector} style={{ width: "100%" }} />
       </Form.Item>
 
       <Form.Item
         name="type"
         label="Selecione o tipo de conta"
-        rules={[{ required: true, message: "Please select gender!" }]}
+        rules={[{ required: true, message: t("form.error.required") }]}
       >
-        <Select placeholder="select your gender">
-          <Option value="male">Pessoal</Option>
-          <Option value="female">Empresa</Option>
+        <Select placeholder={t("form.accountType")}>
+          <Option value="personal">{t("form.accountType.personal")}</Option>
+          <Option value="enterprise">{t("form.accountType.enterprise")}</Option>
         </Select>
       </Form.Item>
 
-      <Form.Item name="language" rules={[{ message: "Please select gender!" }]}>
+      <Form.Item
+        name="language"
+        rules={[{ message: t("form.error.required") }]}
+      >
         <Select placeholder={t("form.language")}>
           <Option value="pt">{t("form.language.pt")}</Option>
           <Option value="en">{t("form.language.en")}</Option>
@@ -129,16 +161,14 @@ export const SignUpForm = () => {
             validator: (_, value) =>
               value
                 ? Promise.resolve()
-                : Promise.reject(new Error("Should accept agreement")),
+                : Promise.reject(new Error(t("form.error.required"))),
           },
         ]}
       >
-        <Checkbox>
-          I have read the <a href="">agreement</a>
-        </Checkbox>
+        <Checkbox>{t("form.agreement")}</Checkbox>
       </Form.Item>
       <Form.Item>
-        <Button type="primary" htmlType="submit">
+        <Button type="primary" htmlType="submit" loading={loading}>
           Register
         </Button>
       </Form.Item>

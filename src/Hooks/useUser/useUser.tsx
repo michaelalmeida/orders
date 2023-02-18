@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 
 interface User {
-  name: string;
-  username: string;
+  email: string;
+  emailVerified: boolean;
 }
 
 interface IUserContext {
@@ -13,8 +13,8 @@ interface IUserContext {
 }
 
 const userDefaultValue = {
-  name: "",
-  username: "",
+  email: "",
+  emailVerified: false,
 };
 
 const defaultState = {
@@ -35,7 +35,7 @@ const useUser = () => {
   };
 
   useEffect(() => {
-    if (user.name) {
+    if (user.email) {
       setIsAuth(true);
     } else {
       setIsAuth(false);

@@ -4,7 +4,7 @@ import { I18nextProvider } from "react-i18next";
 import i18n from "../config/translations";
 import { MAIN_COLOR } from "./constants/colors";
 import GlobalStyle from "./GlobalStyle";
-import { UserProvider } from "./Hooks/useUser/useUser";
+import { UserProvider } from "./Hooks/useUser";
 import { Routes } from "./Routes";
 import { Container } from "./Ui/Container";
 

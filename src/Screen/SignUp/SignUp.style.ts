@@ -21,6 +21,10 @@ export const SignUpForm = styled.div`
   flex-direction: column;
   justify-content: start;
   align-items: start;
+
+  @media screen and (max-width: ${BOX.LARGE}px) {
+    padding: ${PADDING.LARGE}px;
+  }
 `;
 
 export const SignUpSide = styled.div`

@@ -26,14 +26,18 @@ export const LoginForm = () => {
     >
       <Form.Item
         name="username"
-        rules={[{ required: true, message: t("form.required") as string }]}
+        rules={[
+          { required: true, message: t("form.error.required") as string },
+        ]}
       >
         <Input placeholder={t("form.username") as string} size="large" />
       </Form.Item>
 
       <Form.Item
         name="password"
-        rules={[{ required: true, message: t("form.required") as string }]}
+        rules={[
+          { required: true, message: t("form.error.required") as string },
+        ]}
       >
         <Input.Password
           placeholder={t("form.password") as string}

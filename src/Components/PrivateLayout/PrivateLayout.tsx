@@ -1,12 +1,16 @@
 import React from "react";
 import { Header } from "../Header";
-import { Container } from "./PrivateLayout.style";
+import { SideBar } from "../Sidebar";
+import { Container, Layout } from "./PrivateLayout.style";
 
 export const PrivateLayout = ({ children }: { children: JSX.Element }) => {
   return (
-    <Container>
+    <Layout>
       <Header />
-      {children}
-    </Container>
+      <Container>
+        <SideBar />
+        {children}
+      </Container>
+    </Layout>
   );
 };

@@ -5,8 +5,7 @@ import { BOX, PADDING } from "../../constants/sizes";
 export const HeaderWrapper = styled.div`
   width: 100%;
   display: flex;
-  background-color: ${WHITE};
-  box-shadow: rgb(0 0 0 / 5%) 0px 0px 20px 0px;
+  //  background-color: ${WHITE};
   padding: ${PADDING.MEDIUM}px;
   justify-content: center;
 
@@ -18,11 +17,19 @@ export const HeaderWrapper = styled.div`
 
 export const Logo = styled.div`
   display: flex;
-  flex-grow: 1;
   flex-direction: column;
   justify-content: center;
+  flex-basis: 200px;
 `;
 
 export const AvatarWrapper = styled.div`
   display: flex;
+`;
+
+export const QuickActions = styled.div`
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center;
+  flex-basis: 200px;
 `;

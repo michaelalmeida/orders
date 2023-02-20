@@ -3,3 +3,13 @@ export const routes = Object.freeze({
   LOGIN: "login",
   REGISTER: "register",
 });
+
+export const DASHBOARD_ROUTES = Object.freeze({
+  HOME: "/",
+  CALENDAR: "/calendar",
+  QUOTATION_LIST: "/quotation-list",
+  QUOTATION_CREATE: "/quotation",
+  QUOTATION_VIEW: "/quotation/:id",
+  QUOTATION_EDIT: "/quotation/:id/edit",
+  SETTINGS: "/settings",
+});

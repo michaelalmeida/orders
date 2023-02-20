@@ -29,5 +29,10 @@
 
   "signUp.success": "Cadastrado com sucesso!",
   "signUp.needToVerifyEmail": "Um e-mail foi enviado ao endereço cadastrado, por favor, o verifique seu e-mail o quanto antes para confirmar sua conta.",
-  "signUp.goToDashboard": "Comece a criar seus orçamentos"
+  "signUp.goToDashboard": "Comece a criar seus orçamentos",
+
+  "menu.dashboard": "Dashboard",
+  "menu.calendar": "Agenda",
+  "menu.list": "Ver orçamentos",
+  "menu.create": "Criar orçamento"
 }

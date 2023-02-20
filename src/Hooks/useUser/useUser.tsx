@@ -1,20 +1,24 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
+import { useUserCookie } from "./useUserCookie";
 
 interface User {
   email: string;
   emailVerified: boolean;
+  id: string;
 }
 
 interface IUserContext {
   user: User;
   clearUser?: () => void;
   isAuth?: boolean;
-  setUser?: (user: User) => void;
+  setUser: (user: User) => void;
+  setIsAuth: (isAuth: boolean) => void;
 }
 
 const userDefaultValue = {
   email: "",
   emailVerified: false,
+  id: "",
 };
 
 const defaultState = {
@@ -22,27 +26,22 @@ const defaultState = {
   clearUser: () => {},
   setUser: () => {},
   isAuth: false,
+  setIsAuth: () => {},
 };
 
 const UserContext = React.createContext<IUserContext>(defaultState);
 
 const useUser = () => {
+  const { userId } = useUserCookie();
   const [user, setUser] = useState<User>(userDefaultValue);
-  const [isAuth, setIsAuth] = useState<boolean>(false);
+  const [isAuth, setIsAuth] = useState<boolean>(!!userId);
 
   const clearUser = () => {
     setUser(userDefaultValue);
   };
 
-  useEffect(() => {
-    if (user.email) {
-      setIsAuth(true);
-    } else {
-      setIsAuth(false);
-    }
-  }, [user]);
-
   return {
+    setIsAuth,
     clearUser,
     setUser,
     isAuth,

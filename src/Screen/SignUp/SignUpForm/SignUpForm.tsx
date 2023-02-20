@@ -1,6 +1,7 @@
 import { Alert, Button, Checkbox, Form, Input, Select } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { useUserCreation } from "../../../Hooks/useUser";
 
 const { Option } = Select;
@@ -14,6 +15,7 @@ interface UserSignUpProps {
   phone?: string;
   prefix: string;
   type: "enterprise" | "personal";
+  name: string;
 }
 
 interface SignUpFormProps {
@@ -22,24 +24,13 @@ interface SignUpFormProps {
 
 export const SignUpForm = ({ setCompleted }: SignUpFormProps) => {
   const { t } = useTranslation();
-  const { createUserWithEmailAndPassword, loading, error, user } =
-    useUserCreation();
+  const { createUser, loading, error, user } = useUserCreation();
 
   const [form] = Form.useForm();
 
   const onFinish = (values: UserSignUpProps) => {
-    createUserWithEmailAndPassword(values.email, values.password);
+    createUser({ email: values.email, password: values.password });
   };
-
-  const prefixSelector = (
-    <Form.Item name="prefix" noStyle>
-      <Select style={{ width: 70 }}>
-        <Option value="49">+49</Option>
-        <Option value="54">+54</Option>
-        <Option value="55">+55</Option>
-      </Select>
-    </Form.Item>
-  );
 
   if (user) {
     setCompleted(true);
@@ -50,9 +41,6 @@ export const SignUpForm = ({ setCompleted }: SignUpFormProps) => {
       form={form}
       name="register"
       onFinish={onFinish}
-      initialValues={{
-        prefix: "+55",
-      }}
       style={{ width: "100%" }}
       scrollToFirstError
     >
@@ -128,19 +116,27 @@ export const SignUpForm = ({ setCompleted }: SignUpFormProps) => {
         </Form.Item>
       </Form.Item>
 
-      <Form.Item name="phone" rules={[{ message: t("form.error.required") }]}>
-        <Input addonBefore={prefixSelector} style={{ width: "100%" }} />
-      </Form.Item>
-
       <Form.Item
         name="type"
-        label="Selecione o tipo de conta"
+        label={t("form.accountType")}
         rules={[{ required: true, message: t("form.error.required") }]}
       >
         <Select placeholder={t("form.accountType")}>
           <Option value="personal">{t("form.accountType.personal")}</Option>
           <Option value="enterprise">{t("form.accountType.enterprise")}</Option>
         </Select>
+      </Form.Item>
+
+      <Form.Item
+        name="name"
+        rules={[
+          {
+            required: true,
+            message: t("form.error.required"),
+          },
+        ]}
+      >
+        <Input placeholder={t("form.name")} />
       </Form.Item>
 
       <Form.Item
@@ -171,6 +167,9 @@ export const SignUpForm = ({ setCompleted }: SignUpFormProps) => {
         <Button type="primary" htmlType="submit" loading={loading}>
           Register
         </Button>
+        <Link to="../">
+          <Button type="link"> {t("cancel")}</Button>
+        </Link>
       </Form.Item>
     </Form>
   );

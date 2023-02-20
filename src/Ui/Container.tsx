@@ -12,3 +12,12 @@ export const Container = styled.div`
     height: auto;
   }
 `;
+
+export const ScreenContainer = styled.div`
+  display: flex;
+  width: ${BOX.SCREEN}px;
+
+  @media screen and (max-width: ${BOX.SCREEN}px) {
+    width: 100%;
+  }
+`;

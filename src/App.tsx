@@ -6,7 +6,6 @@ import { MAIN_COLOR } from "./constants/colors";
 import GlobalStyle from "./GlobalStyle";
 import { UserProvider } from "./Hooks/useUser";
 import { Routes } from "./Routes";
-import { Container } from "./Ui/Container";
 
 export const App = () => {
   return (
@@ -25,12 +24,12 @@ export const App = () => {
           },
         }}
       >
-        <Container>
+        <>
           <GlobalStyle />
           <UserProvider>
             <Routes />
           </UserProvider>
-        </Container>
+        </>
       </ConfigProvider>
     </I18nextProvider>
   );

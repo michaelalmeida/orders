@@ -13,4 +13,5 @@ export const BOX = {
   SMALL: 450,
   MEDIUM: 750,
   LARGE: 950,
+  SCREEN: 1024,
 };

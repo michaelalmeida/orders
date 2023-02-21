@@ -12,4 +12,5 @@ export const DASHBOARD_ROUTES = Object.freeze({
   QUOTATION_VIEW: "/quotation/:id",
   QUOTATION_EDIT: "/quotation/:id/edit",
   SETTINGS: "/settings",
+  CLIENTS: "/clients",
 });

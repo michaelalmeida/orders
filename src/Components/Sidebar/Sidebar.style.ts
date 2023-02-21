@@ -12,7 +12,7 @@ export const SidebarWrapper = styled.div`
   }
 `;
 
-export const Menu = styled.nav`
+export const Nav = styled.nav`
   width: 100%;
 `;
 
@@ -27,6 +27,8 @@ interface MenuItemProps {
 }
 
 export const MenuItem = styled.li<MenuItemProps>`
+  margin-bottom: 10px;
+
   a {
     padding: 15px;
     display: block;
@@ -34,4 +36,9 @@ export const MenuItem = styled.li<MenuItemProps>`
     color: ${({ active }) => (active ? WHITE : BLACK)};
     border-radius: 15px;
   }
+`;
+
+export const Icon = styled.div`
+  display: inline-block;
+  margin-right: 10px;
 `;

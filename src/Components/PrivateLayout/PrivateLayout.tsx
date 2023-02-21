@@ -1,7 +1,7 @@
 import React from "react";
 import { Header } from "../Header";
 import { SideBar } from "../Sidebar";
-import { Container, Layout } from "./PrivateLayout.style";
+import { Container, Content, Layout } from "./PrivateLayout.style";
 
 export const PrivateLayout = ({ children }: { children: JSX.Element }) => {
   return (
@@ -9,7 +9,7 @@ export const PrivateLayout = ({ children }: { children: JSX.Element }) => {
       <Header />
       <Container>
         <SideBar />
-        {children}
+        <Content>{children}</Content>
       </Container>
     </Layout>
   );

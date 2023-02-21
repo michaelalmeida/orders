@@ -34,5 +34,6 @@
   "menu.dashboard": "Dashboard",
   "menu.calendar": "Agenda",
   "menu.list": "Ver orçamentos",
-  "menu.create": "Criar orçamento"
+  "menu.create": "Criar orçamento",
+  "menu.clients": "Clientes"
 }

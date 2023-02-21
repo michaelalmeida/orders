@@ -2,6 +2,7 @@ import { Avatar, Input, Popover } from "antd";
 import React from "react";
 import { useUserContext } from "../../Hooks/useUser";
 import { ScreenContainer } from "../../Ui/Container";
+import { H1 } from "../../Ui/Typography";
 import {
   AvatarWrapper,
   HeaderWrapper,
@@ -15,7 +16,9 @@ export const Header = () => {
   return (
     <HeaderWrapper>
       <ScreenContainer>
-        <Logo>aa</Logo>
+        <Logo>
+          <H1>Logo</H1>
+        </Logo>
         <QuickActions>
           <Input />
         </QuickActions>

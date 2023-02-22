@@ -1,14 +1,34 @@
 import React from "react";
 import styled from "styled-components";
-import { DARK } from "../../constants/colors";
+import { DARK, MAIN_COLOR, WHITE } from "../../constants/colors";
 
-export const Card = styled.div`
+interface CardProps {
+  hasAction?: boolean;
+}
+
+export const Card = styled.div<CardProps>`
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  border-radius: 20px;
+  transition: all 0.5s ease;
+
+  ${(props) =>
+    props.hasAction &&
+    `
+cursor: pointer;
+  &:hover {
+    color: ${MAIN_COLOR};
+    background-color: ${WHITE};
+    box-shadow: rgb(0 0 0 / 5%) 0px 0px 20px 0px;
+
+    h4 {
+      color: ${MAIN_COLOR};
+    }
+  }`}
 `;
 
-type variant = "normal" | "small" | "large";
+export type variant = "normal" | "small" | "large";
 
 interface NumberProps {
   variant?: variant;
@@ -33,18 +53,19 @@ export const Number = styled.h4<NumberProps>`
   font-size: ${(props) => numberSizeVariant(props.variant)};
   margin: 0 0 5px 0;
   padding: 0;
-  font-weight: 800;
+  font-weight: ${(props) => (props.variant === "large" ? "800" : "600")};
 `;
 
 export const Label = styled.span`
   font-size: 1.2rem;
 `;
 
-interface NumberCardProps {
+export interface NumberCardProps {
   number: number;
   label: string;
   money?: boolean;
   variant?: variant;
+  action?: () => void;
 }
 
 export const NumberCard = ({
@@ -52,9 +73,10 @@ export const NumberCard = ({
   label,
   money,
   variant = "normal",
+  action,
 }: NumberCardProps) => {
   return (
-    <Card>
+    <Card onClick={action} hasAction={!!action}>
       <Number variant={variant}>
         {money && "R$ "}
         {number}

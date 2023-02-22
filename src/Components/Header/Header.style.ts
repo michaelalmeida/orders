@@ -23,6 +23,7 @@ export const Logo = styled.div`
 `;
 
 export const AvatarWrapper = styled.div`
+  margin-left: 30px;
   display: flex;
 `;
 

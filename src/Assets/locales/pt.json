@@ -35,5 +35,10 @@
   "menu.calendar": "Agenda",
   "menu.list": "Ver orçamentos",
   "menu.create": "Criar orçamento",
-  "menu.clients": "Clientes"
+  "menu.clients": "Clientes",
+
+  "sidebar.quotation": "Orçamentos",
+  "sidebar.in_progress": "Em andamento",
+  "sidebar.finished": "Finalizados",
+  "sidebar.cancelled": "Cancelados"
 }

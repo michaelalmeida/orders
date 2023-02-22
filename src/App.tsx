@@ -14,12 +14,14 @@ export const App = () => {
         theme={{
           token: {
             colorPrimary: `${MAIN_COLOR}`,
-            borderRadius: 0,
           },
           components: {
             Button: {
               borderRadius: 5,
-              boxShadow: "0 0 0 0",
+              boxShadow: "0",
+            },
+            Popover: {
+              borderRadius: 20,
             },
           },
         }}

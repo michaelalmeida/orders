@@ -19,7 +19,7 @@ export const useUserLogin = () => {
   const { saveUserIdAsCookie, cleanUserIdCookie } = useUserCookie();
 
   const auth = getAuth(app);
-  const { user, setUser, setIsAuth } = useUserContext();
+  const { user, setUser, setIsAuth, clearUser } = useUserContext();
 
   const [signInWithEmailAndPassword, userData, loading, error] =
     useSignInWithEmailAndPassword(auth);
@@ -32,6 +32,7 @@ export const useUserLogin = () => {
     signOut(auth);
     cleanUserIdCookie();
     navigate(routes.HOME);
+    clearUser();
   };
 
   useEffect(() => {

@@ -8,7 +8,7 @@ export const Content = styled.div`
 `;
 
 export const Stats = styled.div`
-  padding: 30px;
+  padding: 10px;
   flex-basis: 200px;
   display: flex;
   border-radius: 20px;

@@ -9,6 +9,7 @@ import {
   Logo,
   QuickActions,
 } from "./Header.style";
+import { UserMenu } from "./UserMenu";
 
 export const Header = () => {
   const { isAuth } = useUserContext();
@@ -23,7 +24,7 @@ export const Header = () => {
           <Input />
         </QuickActions>
         <AvatarWrapper>
-          <Popover placement="bottom" content={<p>teste</p>} trigger="click">
+          <Popover placement="bottom" content={<UserMenu />} trigger="click">
             <Avatar size={40} style={{ cursor: "pointer" }}>
               USER
             </Avatar>

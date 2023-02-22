@@ -9,7 +9,7 @@ interface User {
 
 interface IUserContext {
   user: User;
-  clearUser?: () => void;
+  clearUser: () => void;
   isAuth?: boolean;
   setUser: (user: User) => void;
   setIsAuth: (isAuth: boolean) => void;

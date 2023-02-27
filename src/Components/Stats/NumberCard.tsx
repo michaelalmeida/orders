@@ -1,7 +1,7 @@
 import React from "react";
+import CountUp from "react-countup";
 import styled from "styled-components";
 import { DARK, MAIN_COLOR, WHITE } from "../../constants/colors";
-
 interface CardProps {
   hasAction?: boolean;
 }
@@ -79,7 +79,7 @@ export const NumberCard = ({
     <Card onClick={action} hasAction={!!action}>
       <Number variant={variant}>
         {money && "R$ "}
-        {number}
+        <CountUp end={number} separator="," />
       </Number>
       <Label>{label}</Label>
     </Card>

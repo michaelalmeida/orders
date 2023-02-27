@@ -4,6 +4,7 @@ import { BLACK, WHITE } from "../constants/colors";
 interface TypographyProps {
   white?: boolean;
   marginBottom?: boolean;
+  variation?: "thin" | "regular" | "bold";
 }
 
 export const H1 = styled.h1<TypographyProps>`
@@ -11,7 +12,7 @@ export const H1 = styled.h1<TypographyProps>`
   margin: 0;
   padding: 0;
   color: ${(props) => (props.white ? WHITE : BLACK)};
-  font-weight: 700;
+  font-weight: ${(props) => (props.variation === "thin" ? 300 : 700)};
   margin-bottom: ${(props) => (props.marginBottom ? "30px" : 0)}; ;
 `;
 

@@ -1,6 +1,12 @@
 import styled from "styled-components";
 import { YELLOW } from "../../constants/colors";
 
+export const DashboardWrapper = styled.div`
+  display: flex;
+  gap: 30px;
+  flex-grow: 1;
+`;
+
 export const Content = styled.div`
   flex-grow: 1;
   display: flex;

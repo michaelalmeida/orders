@@ -1,17 +1,17 @@
 import React from "react";
 import { PrivateLayout } from "../../Components/PrivateLayout";
+import { Charts } from "../../Components/Stats/Charts";
 import { NumberCard } from "../../Components/Stats/NumberCard";
-import { H1 } from "../../Ui/Typography";
-import { Content, Stats } from "./Dashboard.style";
+import { Content, DashboardWrapper, Stats } from "./Dashboard.style";
 import { useSidebarItems } from "./useSidebarItems";
 
 export const Dashboard = () => {
   const { items } = useSidebarItems();
   return (
     <PrivateLayout>
-      <>
+      <DashboardWrapper>
         <Content>
-          <H1>Dashboard</H1>
+          <Charts />
         </Content>
         <Stats>
           {items.map((item) => (
@@ -24,7 +24,7 @@ export const Dashboard = () => {
             />
           ))}
         </Stats>
-      </>
+      </DashboardWrapper>
     </PrivateLayout>
   );
 };

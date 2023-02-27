@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BLACK, MAIN_COLOR, WHITE } from "../../constants/colors";
+import { BLACK, MAIN_COLOR, PINK, WHITE, YELLOW } from "../../constants/colors";
 import { BOX } from "../../constants/sizes";
 
 export const SidebarWrapper = styled.div`
@@ -35,6 +35,13 @@ export const MenuItem = styled.li<MenuItemProps>`
     background: ${({ active }) => (active ? MAIN_COLOR : "transparent")};
     color: ${({ active }) => (active ? WHITE : BLACK)};
     border-radius: 15px;
+
+    ${({ active }) =>
+      !active &&
+      `&:hover {
+      background: ${YELLOW};
+      color: ${MAIN_COLOR};
+    }`};
   }
 `;
 

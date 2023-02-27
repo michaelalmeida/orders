@@ -23,10 +23,10 @@ const userDefaultValue = {
 
 const defaultState = {
   user: userDefaultValue,
-  clearUser: () => {},
-  setUser: () => {},
+  clearUser: () => void {},
+  setUser: () => void {},
   isAuth: false,
-  setIsAuth: () => {},
+  setIsAuth: () => void {},
 };
 
 const UserContext = React.createContext<IUserContext>(defaultState);

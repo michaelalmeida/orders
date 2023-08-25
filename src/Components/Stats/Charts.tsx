@@ -12,10 +12,11 @@ import {
   MarkAreaComponent,
   TitleComponent,
   TooltipComponent,
+  ToolboxComponent,
 } from "echarts/components";
 
 import { CanvasRenderer } from "echarts/renderers";
-import { H1 } from "../../Ui/Typography";
+import { H2 } from "../../Ui/Typography";
 
 export const ChartsWrapper = styled.div`
   padding: 20px;
@@ -31,7 +32,11 @@ export const Header = styled.div`
   }
 `;
 
-export const Charts = () => {
+interface ChartsProps {
+  title: string;
+}
+
+export const Charts = ({ title }: ChartsProps) => {
   const options = {
     color: ["#80FFA5", "#00DDFF", "#37A2FF", "#FF0087", "#FFBF00"],
     title: {
@@ -222,13 +227,14 @@ export const Charts = () => {
     AxisPointerComponent,
     MarkAreaComponent,
     LineChart,
+    ToolboxComponent,
   ]);
 
   return (
     <ChartsWrapper>
       <Header>
         <div>
-          <H1 variation="thin">Orçamentos</H1>
+          <H2 variation="thin">{title}</H2>
         </div>
         <DatePicker picker="week" />
       </Header>

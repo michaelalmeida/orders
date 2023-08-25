@@ -29,6 +29,13 @@ module.exports = {
         issuer: /\.[jt]sx?$/,
         use: ["@svgr/webpack"],
       },
+      {
+        test: /\.(js|jsx)$/,
+        loader: "babel-loader",
+        options: {
+          presets: ["@babel/preset-env", "@babel/preset-react"],
+        },
+      },
     ],
   },
   devtool: prod ? undefined : "source-map",

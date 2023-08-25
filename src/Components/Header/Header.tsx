@@ -1,6 +1,5 @@
 import { Avatar, Input, Popover } from "antd";
 import React from "react";
-import { useUserContext } from "../../Hooks/useUser";
 import { ScreenContainer } from "../../Ui/Container";
 import { H1 } from "../../Ui/Typography";
 import {
@@ -11,22 +10,27 @@ import {
 } from "./Header.style";
 import { UserMenu } from "./UserMenu";
 
-export const Header = () => {
-  const { isAuth } = useUserContext();
+interface HeaderProps {
+  logo?: string;
+  name: string;
+}
 
+export const Header = ({ logo, name }: HeaderProps) => {
   return (
     <HeaderWrapper>
       <ScreenContainer>
-        <Logo>
-          <H1>Logo</H1>
-        </Logo>
+        <Logo>{logo ? <img src={logo} alt={name} /> : <H1>{name}</H1>}</Logo>
         <QuickActions>
           <Input />
         </QuickActions>
         <AvatarWrapper>
-          <Popover placement="bottom" content={<UserMenu />} trigger="click">
+          <Popover
+            placement="bottomRight"
+            content={<UserMenu />}
+            trigger="click"
+          >
             <Avatar size={40} style={{ cursor: "pointer" }}>
-              USER
+              {name.slice(0, 2).toUpperCase()}
             </Avatar>
           </Popover>
         </AvatarWrapper>

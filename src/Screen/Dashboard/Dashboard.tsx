@@ -7,11 +7,12 @@ import { useSidebarItems } from "./useSidebarItems";
 
 export const Dashboard = () => {
   const { items } = useSidebarItems();
+
   return (
     <PrivateLayout>
       <DashboardWrapper>
         <Content>
-          <Charts />
+          <Charts title="Orçamentos" />
         </Content>
         <Stats>
           {items.map((item) => (
